@@ -2,6 +2,21 @@
 ## Barrage Spell
 You can import the Barrage spell from the Barrage.txt file nearly at the very beginning of the game.  It will let you destroy barrier walls made of spider webs or flammable blocks.  You can then traverse areas of the map (such as the Yellow Area) earlier than you are allowed to.  This does not mean there won't be other barriers to your traversal, however!  Aside from that, it's a useful and competent spell on its own if you choose to use it.
 
+## Floating Point Repeat for Free Spells (06/02/2024)
+Apparently, if you surround your entire spell in a Repeat loop whose loop count is a decimal value which is less than one, the spell engine determines that it will never run and no mana will be expended.  However, it DOES run because its counter is greater than 0 and when it runs, no mana is expended.  Your spell is now free.  Consider using any of the spells herein with this trick and then turn up the loop counts for more firepower!  For example, this spell costs 0 mana and puts an awful lot of holes in your enemies:
+
+```
+- Start
+- Repeat(0.2)
+-- Repeat(30)
+--- Throw(ApplyAspect(SpawnOrb(self) ,Enchant), MouseAngle)
+-- End Repeat
+- End Repeat
+```
+
+## Imported Aspects (06/02/2024)
+If you progress through a game and export a powerful spell, you may find that you cannot import it into a new game because you have not yet acquired the necessary scrolls.  However, this does not apply to aspect scrolls.  You can export a spell that throws orbs imbued with Sharp and Ignite aspects and then import it into a new game and have these aspects available to pass through barriers which enforce the game's play path and timeline.  At your own risk, of course.  To save you the trouble and for first-time players, see the _Barrage_ spell in the cheats folder.  It is provided specifically for this purpose.
+
 ## CheatEngine
 You can download and compile the CheatEngine-i386 source and use it to acquire everything you need to be a diety in this game.  
 
